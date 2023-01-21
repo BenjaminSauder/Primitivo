@@ -16,91 +16,91 @@ EnumProperty,
 from . import operators
 
 class PRIMITIVO_OT_Torus_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Torus object to the scene"""
     bl_idname = 'mesh.primitivo_torus_add'
     bl_label = "Primitivo Torus"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Torus'
-    auto_smooth_angle = 3.1415927410125732
+    auto_smooth_angle = 1.5533430576324463
     
     
 class PRIMITIVO_OT_Sphere_Quad_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Sphere Quad object to the scene"""
     bl_idname = 'mesh.primitivo_sphere_quad_add'
     bl_label = "Primitivo Sphere_Quad"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Sphere_Quad'
     auto_smooth_angle = 3.1415927410125732
     
     
 class PRIMITIVO_OT_Sphere_Ico_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Sphere Ico object to the scene"""
     bl_idname = 'mesh.primitivo_sphere_ico_add'
     bl_label = "Primitivo Sphere_Ico"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Sphere_Ico'
     auto_smooth_angle = 0.5235987901687622
     
     
 class PRIMITIVO_OT_Sphere_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Sphere object to the scene"""
     bl_idname = 'mesh.primitivo_sphere_add'
     bl_label = "Primitivo Sphere"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Sphere'
     auto_smooth_angle = 3.1415927410125732
     
     
 class PRIMITIVO_OT_Grid_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Grid object to the scene"""
     bl_idname = 'mesh.primitivo_grid_add'
     bl_label = "Primitivo Grid"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Grid'
     auto_smooth_angle = 1.5533430576324463
     
     
 class PRIMITIVO_OT_Cylinder_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Cylinder object to the scene"""
     bl_idname = 'mesh.primitivo_cylinder_add'
     bl_label = "Primitivo Cylinder"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Cylinder'
     auto_smooth_angle = 1.5515977144241333
     
     
 class PRIMITIVO_OT_Cone_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Cone object to the scene"""
     bl_idname = 'mesh.primitivo_cone_add'
     bl_label = "Primitivo Cone"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Cone'
     auto_smooth_angle = 1.5533430576324463
     
     
 class PRIMITIVO_OT_Circle_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Circle object to the scene"""
     bl_idname = 'mesh.primitivo_circle_add'
     bl_label = "Primitivo Circle"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Circle'
     auto_smooth_angle = 1.5533430576324463
     
     
 class PRIMITIVO_OT_Box_Add(bpy.types.Operator, operators.PRIMITIVO_OP_Add):
-    
+    """Adds a procedural Box object to the scene"""
     bl_idname = 'mesh.primitivo_box_add'
     bl_label = "Primitivo Box"
     bl_options = {'REGISTER', 'UNDO' }
-        
+
     primitivo_type = 'Primitivo_Box'
     auto_smooth_angle = 1.5533430576324463
     

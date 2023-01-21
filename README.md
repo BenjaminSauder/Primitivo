@@ -12,3 +12,11 @@ Available primitives at the moment:
 ![grafik](https://user-images.githubusercontent.com/13512160/213873471-497ecbc0-0c28-4457-af2f-d107205ace09.png)
 
 These are shown as nodes just for easy showcasing of the types and parameters - while these can be used in geometry nodes as any other node group, that wasn't really my focus and usage in that context can surely be improved.
+
+
+
+
+
+Notes:
+https://linktr.ee/higgsas - some great node groups from here, thanks for sharing!
+

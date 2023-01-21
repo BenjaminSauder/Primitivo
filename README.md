@@ -1,6 +1,9 @@
 # Primitivo
 Procedural Primitives for Blender
 
+[primitivo.webm](https://user-images.githubusercontent.com/13512160/213875431-1c48f3e8-2c68-4c44-9e2f-2f735c07ad4f.webm)
+
+
 This addon packages a collection of basic procedural primitives with a bit of glue code to make it easy to add these to the scene. The primitives themselves are just geometry nodes networks and are nothing out of the ordinary. I tried to come up with a sensible collection of primitives and useful parameters, without going too much into niche territory.
 
 So the main idea here is to get easy access to procedural primitives in the scene without having to dive into geometry nodes all the time. These can just be added as you're used to, namely through the add menu. After object creation the paramters can be tweaked in the modifier tab whenever you want to.  

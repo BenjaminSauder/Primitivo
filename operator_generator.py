@@ -15,7 +15,8 @@ def generate_class_string(obj, add_properties_callbacks):
     s = f'\nclass {class_name}(bpy.types.Operator, operators.PRIMITIVO_OP_Add):\n'
         
     primitive_type_lower = primitive_type.lower()
-    s += f'''    bl_idname = 'mesh.primitivo_{primitive_type_lower}_add'
+    s += f'''    """Adds a procedural {primitive_type.replace("_", " ")} object to the scene"""
+    bl_idname = 'mesh.primitivo_{primitive_type_lower}_add'
     bl_label = "Primitivo {primitive_type}"
     bl_options = {{'REGISTER', 'UNDO' }}
 

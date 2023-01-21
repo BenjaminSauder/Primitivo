@@ -1,5 +1,4 @@
 import pathlib
-import time
 
 import bpy
 from bpy_extras import object_utils
@@ -18,10 +17,8 @@ from . import operator_generator
 
 template_path = pathlib.Path(__file__).parent / "primitivo_library.blend"
 
-# may add asset library somehow?
-# C.preferences.filepaths.asset_libraries[1].path
-
 class PRIMITIVO_OT_GenerateOperators(bpy.types.Operator):
+    """Generate the operator classes from the primitivo_library.blend objects"""
     bl_idname = 'primitivo.generate_operators'
     bl_label = "Primitivo Generate Operators"
     bl_options = {'REGISTER', 'UNDO' }
@@ -32,8 +29,7 @@ class PRIMITIVO_OT_GenerateOperators(bpy.types.Operator):
     def execute(self, context):
 
         with bpy.data.libraries.load(str(template_path)) as (data_from, data_to):
-            data_to.objects = [name for name in data_from.objects if name.startswith('Primitivo_')]
-              
+            data_to.objects = [name for name in data_from.objects if name.startswith('Primitivo_')]              
        
         target = template_path.parent / "operators_generated.py"
         operator_generator.run(data_to.objects, target)
@@ -46,26 +42,6 @@ class PRIMITIVO_OT_GenerateOperators(bpy.types.Operator):
         bpy.ops.script.reload()
 
         return {'FINISHED'} 
-
-# def PrimitivoPropertyEntry_Update(self, context):
-#     modifier = bpy.context.active_object.modifiers[0]
-     
-#     if self.type == 'VALUE':
-#         modifier[f"'{self.name}'"] = self.floatProp
-#     elif self.type == 'INT':           
-#         modifier[f"'{self.name}'"] = self.intProp            
-#     elif self.type == 'BOOLEAN':
-#         modifier[f"'{self.name}'"] = int(self.boolProp)
-      
-#     bpy.context.object.data.update()
-
-# class PrimitivoPropertyEntry(bpy.types.PropertyGroup):
-#     name: bpy.props.StringProperty()
-#     type: bpy.props.StringProperty()
-#     primitivo_type: bpy.props.StringProperty()
-#     intProp: bpy.props.IntProperty(update=PrimitivoPropertyEntry_Update)
-#     boolProp: bpy.props.BoolProperty(update=PrimitivoPropertyEntry_Update)
-#     floatProp: bpy.props.FloatProperty(update=PrimitivoPropertyEntry_Update)
 
 class PRIMITIVO_OP_Add:   
 
@@ -91,13 +67,6 @@ class PRIMITIVO_OP_Add:
         name="Rotation",
         subtype='EULER',
     )
-
-    # settings: bpy.props.CollectionProperty(type=PrimitivoPropertyEntry)
-    
-    # @property
-    # def modifier_properties(self):
-    #     #return bpy.context.scene.Primitivo_Settings
-    #     return self.settings
     
     @classmethod
     def poll(cls, context):
@@ -150,29 +119,7 @@ class PRIMITIVO_OP_Add:
         bpy.context.view_layer.objects.active = obj
 
         obj.matrix_world = object_utils.add_object_align_init(context, operator=self)
-      
-        # if len(self.modifier_properties) == 0 or self.modifier_properties[0].primitivo_type != self.primitivo_type:
-        #     self.modifier_properties.clear()
-
-        #     for input in modifier.node_group.inputs:
-        #         item = self.modifier_properties.add()
-        #         item.primitivo_type = self.primitivo_type    
-        #         item.name = input.identifier
-            
-        #         if input.identifier == "Input_0": continue
-                
-        #         item.type = input.type
-
-        #         value = modifier[input.identifier]
-                
-        #         if input.type == 'VALUE':
-        #             item.floatProp = value                    
-        #         elif input.type == 'INT':
-        #             item.intProp = value
-        #         elif input.type == 'BOOLEAN':
-        #             item.boolProp = value
-
-
+     
     def invoke(self, context, event):        
         return self.execute(context)        
         
@@ -185,27 +132,11 @@ class PRIMITIVO_OP_Add:
         layout.use_property_split = True
         layout.use_property_decorate = False
 
-        # if len(self.modifier_properties) > 0:
-        #     modifier = context.active_object.modifiers[0]
-        #     for index, input in enumerate(modifier.node_group.inputs):
-        #         if input.identifier == "Input_0": continue
-            
-        #         item = self.modifier_properties[index]
-                
-        #         if input.type == 'VALUE':
-        #             layout.prop(item, "floatProp", text=input.name)
-        #         elif input.type == 'INT':
-        #             layout.prop(item, "intProp", text=input.name)
-        #         elif input.type == 'BOOLEAN':               
-        #             layout.prop(item, "boolProp", text=input.name)
-        
         layout.prop(self, "align")
         layout.prop(self, "location")
         layout.prop(self, "rotation")
 
 classes = (
-    # PrimitivoPropertyEntry,
-
     PRIMITIVO_OT_GenerateOperators,
 )
 
@@ -213,10 +144,6 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
 
-    # bpy.types.Scene.Primitivo_Settings = bpy.props.CollectionProperty(type=PrimitivoPropertyEntry)
-
 def unregister():
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
-
-    # del bpy.types.Scene.Primitivo_Settings

@@ -4,7 +4,7 @@ bl_info = {
     "category": "Object",
     "author": "Benjamin Sauder",
     "description": "Add geometry nodes primitves",
-    "blender": (3, 4    , 0),
+    "blender": (3, 5, 0),
     "version": (0, 1)
 }
 
